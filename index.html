@@ -27,6 +27,7 @@ body::before {
     z-index: -1;
 }
 
+/* NAVBAR */
 nav {
     display: flex;
     justify-content: space-between;
@@ -40,7 +41,13 @@ nav {
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 
-nav ul { display: flex; list-style: none; padding: 0; margin: 0; }
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
 nav a {
     color: white;
     margin-right: 25px;
@@ -48,11 +55,13 @@ nav a {
     cursor: pointer;
     font-size: 18px;
     text-decoration: none;
-    transition: color 0.3s;
 }
-nav a:hover { color: orange; }
 
-#searchBar { display: flex; align-items: center; }
+#searchBar {
+    display: flex;
+    align-items: center;
+}
+
 nav input {
     padding: 10px;
     font-size: 16px;
@@ -61,6 +70,7 @@ nav input {
     outline: none;
     width: 250px;
 }
+
 nav button {
     padding: 10px 20px;
     margin-left: 10px;
@@ -71,22 +81,25 @@ nav button {
     font-weight: bold;
     color: white;
 }
+
 .btn-search { background-color: orange; }
-.btn-search:hover { background-color: #cc8400; }
 .btn-clear { background-color: #d9534f; }
-.btn-clear:hover { background-color: #c9302c; }
+
+/* PAGE CONTROL */
 .page { display: none; }
 .active { display: block; }
+
+/* HOME */
 .home-layout {
     display: flex;
     flex-direction: column;
     padding: 40px;
     min-height: calc(100vh - 80px);
 }
+
 @media (min-width: 900px) {
     .home-layout {
         flex-direction: row;
-        align-items: flex-start;
         justify-content: space-between;
     }
 }
@@ -95,65 +108,50 @@ nav button {
     flex: 0 0 400px;
     padding-right: 40px;
     color: white;
-    position: sticky;
-    top: 100px;
 }
-.hero h1 { font-size: 50px; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
-.hero p { font-size: 20px; line-height: 1.6; margin-bottom: 30px; background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px; }
 
-.social-icons i { font-size: 28px; margin-right: 20px; cursor: pointer; color: white; transition: 0.3s; }
-.social-icons i:hover { color: orange; }
+.hero h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
 
 #results {
     flex: 1;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 30px;
-    padding-bottom: 50px;
 }
 
 .card {
     background: #ffffff;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    display: flex;
-    flex-direction: column;
-}
-.card img { width: 100%; height: 220px; object-fit: cover; }
-.card-content { padding: 20px; color: #333; flex-grow: 1; }
-.card h3 { margin-top: 0; font-size: 24px; color: #222; }
-.card p { font-size: 16px; line-height: 1.5; color: #555; margin-bottom: 20px; }
-
-.local-time {
-    display: inline-block;
-    background-color: #f0f0f0;
-    color: #333;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    border-left: 5px solid orange;
 }
 
-.visit-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #1E3A5F;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
 }
 
+.card-content {
+    padding: 20px;
+}
+
+/* ABOUT & CONTACT */
 .center-box {
     min-height: calc(100vh - 80px);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
 }
+
 .center-content {
     background: rgba(0,0,0,0.8);
     padding: 50px;
@@ -163,13 +161,13 @@ nav button {
     text-align: center;
     border-radius: 10px;
 }
-.center-content h1 { margin-bottom: 20px; }
 
-.center-content input, .center-content textarea {
+.center-content input,
+.center-content textarea {
     width: 100%;
-    padding: 15px; /* Biraz daha geniş iç boşluk */
+    padding: 15px;
     margin-bottom: 20px;
-    font-size: 18px; /* Yazı boyutu büyüdü */
+    font-size: 18px;
     border-radius: 5px;
     border: none;
 }
@@ -177,19 +175,14 @@ nav button {
 .submit-btn {
     width: 100%;
     padding: 15px;
-    font-size: 22px; /* Yazı Büyüdü */
+    font-size: 22px;
     background-color: orange;
     color: white;
     border: none;
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
 }
-.submit-btn:hover {
-    background-color: #e69500;
-}
-
 </style>
 </head>
 
@@ -202,6 +195,7 @@ nav button {
         <a href="#" onclick="showPage('contact'); return false;">Contact Us</a>
     </ul>
 
+    <!-- 🔴 SEARCH BAR ARTIK HER SAYFADA GÖRÜNÜR -->
     <div id="searchBar">
         <input type="text" id="searchInput" placeholder="Enter beach, temple, country...">
         <button class="btn-search" onclick="searchRecommendations()">Search</button>
@@ -213,16 +207,7 @@ nav button {
     <div class="home-layout">
         <div class="hero">
             <h1>Explore<br>The World</h1>
-            <p>
-                Find the best destinations for your next holiday. 
-                Search for beaches, temples, or countries.
-            </p>
-            <div class="social-icons">
-                <i class="fab fa-facebook"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-youtube"></i>
-            </div>
+            <p>Find the best destinations for your next holiday.</p>
         </div>
         <div id="results"></div>
     </div>
@@ -233,7 +218,6 @@ nav button {
         <div class="center-content">
             <h1>About Us</h1>
             <p>We provide the best travel recommendations.</p>
-            <hr>
             <h3>Our Team</h3>
             <p>Tunay Çakıcı - CEO<br>Tunay Çakıcı - Manager</p>
         </div>
@@ -244,25 +228,25 @@ nav button {
     <div class="center-box">
         <div class="center-content">
             <h1>Contact Us</h1>
-            <form onsubmit="event.preventDefault(); alert('Message Sent!');">
+            <form>
                 <input type="text" placeholder="Name" required>
                 <input type="email" placeholder="Email" required>
                 <textarea rows="5" placeholder="Message" required></textarea>
-                <button class="submit-btn" type="submit">SUBMIT</button>
+                <button class="submit-btn" type="submit">Submit</button>
             </form>
         </div>
     </div>
 </div>
 
 <script src="travel_recommendation.js"></script>
+
 <script>
-    function showPage(pageId) {
-        document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-        document.getElementById(pageId).classList.add('active');
-        
-        const searchBar = document.getElementById('searchBar');
-        searchBar.style.display = (pageId === 'home') ? 'flex' : 'none';
-    }
+/* 🔧 HASH EKLENDİ – PAGE ALGILANSIN DİYE */
+function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+    window.location.hash = pageId;
+}
 </script>
 
 </body>
